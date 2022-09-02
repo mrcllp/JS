@@ -43,6 +43,7 @@ function inputLength() {
 }
 
 function createListElement () {
+        var deleteBtns = document.getElementsByClassName("delete");
         var li = document.createElement("li"); 
         li.appendChild(document.createTextNode(input.value));
         ul.appendChild(li);
@@ -60,6 +61,15 @@ function addListAfterKeyPress(event) {
         if (inputLength() > 0 && event.keyCode === 13) {
             createListElement();
         }
+}
+
+
+
+
+function deleteListElement(element) {
+	if (element.target.className === "delClass"){
+		element.target.parentElement.remove();
+	}
 }
 
 button.addEventListener("click", addListAfterClick)
